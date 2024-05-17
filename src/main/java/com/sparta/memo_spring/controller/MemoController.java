@@ -4,7 +4,6 @@ package com.sparta.memo_spring.controller;
 import com.sparta.memo_spring.dto.MemoRequestDto;
 import com.sparta.memo_spring.dto.MemoResponseDto;
 import com.sparta.memo_spring.service.MemoService;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +14,8 @@ public class MemoController {
 
     private final MemoService memoService;
 
-    public MemoController(JdbcTemplate jdbcTemplate) {
-        this.memoService = new MemoService(jdbcTemplate);
+    public MemoController(MemoService memoService) {
+        this.memoService =memoService;
     }
 
     @PostMapping("/memos")
